@@ -149,7 +149,154 @@ Il sistema è composto dai seguenti file principali:
 Il progetto utilizza una struttura modulare per facilitare il passaggio tra le diverse versioni di tracking.
 Il file .gitignore è configurato per mantenere il repository pulito, ignorando le cartelle pesanti come node_modules.
 
-
 📜 Note sulla versione (v1.0)
 Questa è la prima release stabile. Il codice è stato organizzato per garantire una struttura chiara e una facile consultazione delle iterazioni passate.
+
+# ENG VERSION
+# P5-Fiducials Tracking System
+
+A tracking system for **fiducials** (the visual markers from [reacTIVision](https://reactivision.sourceforge.net/)) for real-time interaction. The project manages fiducial acquisition, backend processing via [Node.js](https://nodejs.org/), and dynamic visualization in **VS Code**.
+
+## 💻 Development Environment
+The project is optimized for use with [VS Code](https://code.visualstudio.com/). We recommend using this editor to manage the integrated terminal, debug `.js` files, and handle Git synchronization.
+Alternatively, you can also use [P5LIVE](https://teddavis.org/p5live/).
+
+## 📂 Project Structure
+
+The system consists of the following main files:
+
+* **`index.html`**: Basic interface structure.
+* **`sketch.js`**: Current version of the **p5.js** visualization logic.
+* **`tracking.js`**: Algorithm for fiducial tracking management.
+* **`server.js`**: Backend engine for connection management.
+
+> **Note:** The repository includes several numbered versions (e.g., `sketch0.js`, `tracking0.js`) representing the project's development history.
+
+## 🚀 Getting Started
+
+### To run the project with [VS Code](https://code.visualstudio.com/)
+
+0. **Ensure you have it installed.**
+
+1. **Install dependencies:**
+   You can run this directly from the VS Code terminal:
+   ```bash
+   npm install
+   ```
+
+2. **Start the server:**
+
+ ```bash
+  node server.js
+   ```
+
+   Alternatively, you can use the provided `.bat` files (`AVVIA_SERVER.bat` or `start.bat`) to automate the startup.
+
+3. **Run the Sketch:**
+   Open `index.html` in your browser.
+
+4. **Tracking:**
+   Move your fiducials in front of the webcam.
+
+---
+
+### To run the project with [P5LIVE](https://teddavis.org/p5live/)
+
+0. **Visit the [P5LIVE](https://teddavis.org/p5live/) website.**
+
+1. **Install dependencies and start the server from your terminal:**
+   ```bash
+   npm install
+   ```
+   ```Bash
+   node server.js
+   ```
+
+(Or use the provided .bat files for automation).
+
+2. **Run the Sketch:**
+Copy and paste the following code into the P5LIVE editor:
+
+```JavaScript
+let logStato = "Waiting for Node.js Server...";
+let fiduciali = {}; // Stores objects using their session_id
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  let socket = new WebSocket("ws://localhost:8080");
+
+  socket.onopen = function() {
+    logStato = "🟢 Node connected! System stable and precise.";
+  };
+
+  socket.onmessage = function(event) {
+    let dati = JSON.parse(event.data);
+
+    if (dati.type === "set") {
+      fiduciali[dati.session_id] = {
+        class_id: dati.class_id,
+        x: dati.x * width,
+        y: dati.y * height,
+        angolo: dati.angle
+      };
+    } 
+    else if (dati.type === "alive") {
+      let presenti = dati.session_ids; 
+      for (let sid in fiduciali) {
+        if (!presenti.includes(Number(sid))) {
+          delete fiduciali[sid]; 
+        }
+      }
+    }
+  };
+}
+
+function draw() {
+  background(20, 20, 35, 60);
+
+  // Status Panel
+  fill(255);
+  noStroke();
+  textSize(16);
+  textAlign(LEFT, TOP);
+  text(logStato, 20, 20);
+  fill(0, 255, 200);
+  text("Objects on table: " + Object.keys(fiduciali).length, 20, 50);
+
+  // Drawing Objects
+  for (let sid in fiduciali) {
+    let f = fiduciali[sid];
+
+    noFill();
+    stroke(0, 255, 200);
+    strokeWeight(4);
+    ellipse(f.x, f.y, 90, 90);
+
+    fill(255);
+    noStroke();
+    textAlign(CENTER, CENTER);
+    textSize(22);
+    text(f.class_id, f.x, f.y);
+
+    stroke(255, 102, 0);
+    strokeWeight(4);
+    push();
+    translate(f.x, f.y);
+    rotate(f.angolo);
+    line(0, 0, 45, 0);
+    pop();
+  }
+}
+```
+
+3.	**Tracking:**
+   Move your fiducials in front of the webcam.
+
+
+## 🛠 Technical Notes
+* The project uses a modular structure to facilitate switching between different tracking versions.
+* The `.gitignore` file is configured to keep the repository clean by ignoring heavy folders like `node_modules`.
+
+## 📜 Version History (v1.0)
+This is the first stable release. The code has been organized to ensure a clear structure and easy reference to past iterations.
 
