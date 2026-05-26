@@ -20,16 +20,18 @@ Il sistema è composto dai seguenti file principali:
 
   # Per eseguire il progetto con [VS Code](https://code.visualstudio.com/)
 
-  0.	**Assicurati di averlo installato.**
+  0.	**Assicurati di avere installati:** [VS Code](https://code.visualstudio.com/) e OSC
+
+ 
     
-1.	**Installa le dipendenze:**
+2.	**Installa le dipendenze:**
        anche direttamente dal terminale di VS
     
     ```bash
-    npm install
+    npm install osc
     ```
     
-2.	**Avvia il server:**
+3.	**Avvia il server:**
     
     ```bash
     node server.js
@@ -37,10 +39,10 @@ Il sistema è composto dai seguenti file principali:
     
     oppure puoi utilizzare i file .bat inclusi (AVVIA_SERVER.bat o start.bat) per automatizzare l'avvio.
     
-3.	**esegui lo Sketch**
+4.	**esegui lo Sketch**
       lanciando "index.html"
       
-4.	**muovi i fiducial davanti la webcam**
+5.	**muovi i fiducial davanti la webcam**
 
 
 
@@ -54,7 +56,7 @@ Il sistema è composto dai seguenti file principali:
        
   
   ```bash
-  npm install
+  npm install osc
   ```
   
   
@@ -181,7 +183,7 @@ The system consists of the following main files:
 1. **Install dependencies:**
    You can run this directly from the VS Code terminal:
    ```bash
-   npm install
+   npm install osc
    ```
 
 2. **Start the server:**
@@ -206,7 +208,7 @@ The system consists of the following main files:
 
 1. **Install dependencies and start the server from your terminal:**
    ```bash
-   npm install
+   npm install osc
    ```
    ```Bash
    node server.js
