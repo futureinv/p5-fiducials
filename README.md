@@ -49,8 +49,8 @@ Ideale per demo, lezioni o condivisione rapida online.
 
 ## 🚀 Guida Rapida all'Avvio
 Per automatizzare il setup su Windows, usa i file `.bat` presenti nella cartella:
-* `AVVIA_SERVER.bat`: Lancia Node.js.
-* `START_TUNNEL.bat`: Lancia ngrok (se necessario per il web).
+* `AVVIA_SERVER.bat`: Lancia server.js.
+* `START_TUNNEL.bat`: Lancia server e ngrok (se necessario per il web).
 
 ---
 
