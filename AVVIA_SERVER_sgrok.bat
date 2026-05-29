@@ -3,7 +3,7 @@ echo Avvio del sistema in corso...
 
 :: 1. Apre una finestra separata per il Server Node
 :: Il "title" serve per identificarla facilmente
-start "SERVER_TUIO" cmd /k "node server4.js"
+start "SERVER_TUIO" cmd /k "node server.js"
 
 :: 2. Breve attesa per permettere al server di inizializzare la porta 8080
 timeout /t 2
