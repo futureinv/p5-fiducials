@@ -68,13 +68,13 @@ function draw() {
     textAlign(CENTER, CENTER);
     textSize(22);
     // Mostriamo il numero stampato (class_id), non la sessione!
-    text(f.class_id, width-f.x, f.y);
+    text(f.id, width-f.x, f.y);
 
     stroke(0,255, 200);
     strokeWeight(4);
     push();
     translate(f.x, f.y);
-    rotate(f.angolo);
+    rotate(f.angle);
     line(0, 0, 45, 0);
     pop();
     
