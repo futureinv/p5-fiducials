@@ -43,7 +43,7 @@ Ideale per demo, lezioni o condivisione rapida online.
 * **`tracking.js`**: Motore di ricezione dati WebSocket (la parte tecnica).
 * **`server.js`**: Backend di gestione connessioni.
 
-> **Consiglio didattico:** Per mantenere il codice pulito, carica `tracking.js` nell'HTML *prima* di `sketch.js`. In questo modo `sketch.js` potrà accedere liberamente alle variabili `window.fiduciali` e `window.cursori` senza dover gestire la rete.
+> **Nota:** Per mantenere il codice pulito, il codice qui è estato diviso in `tracking.js` e `sketch.js`, il primo gestisce i dati TUIO il secondo i disegni, nell'HTML quindi va iserito *prima* `tracking.js` e *poi* `sketch.js`. In questo modo `sketch.js` potrà accedere liberamente alle variabili `window.fiduciali` e `window.cursori` senza dover gestire la rete. Questa cosa in *P5live* non può avvenire e quindi lo sketch è unico e contiene tutto.
 
 ---
 
