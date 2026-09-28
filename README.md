@@ -18,7 +18,7 @@ A me l'interfaccia di VS non piace molto, quindi ho testato anche l'IDE di Proce
   * **Setup:**
     1. Installa le dipendenze: `npm install osc`.
     2. Avvia il server: `node server.js` (o usa i file `.bat` inclusi).
-    3. Avvia lo sketch tramite *Live Server* su VS Code.
+    3. Avvia lo sketch tramite l'IDE di Processing .
     4. Il sistema comunicherà tramite `ws://localhost:8080`.
    
 
