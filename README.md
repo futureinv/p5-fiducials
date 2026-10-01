@@ -26,7 +26,7 @@ Funziona molto bene, ma non è ancora capace di rilevare errori... quindi il deb
 ` Giudizio: valido come strumento didattico, ma non di sviluppo.`  
 > **Nota:** Per impostare l'IDE di Processing per il javascript, dal menù a tendina in alto a destra, dove di solito tovi la modalità "java", puoi aggiungere la **p5.js Mode (experimental)** che ti permette di inserire la struttura che vedi sotto: "index.html", "sketch.js"...
 
-### 2. Su Browser (P5LIVE o p5js.org + ngrok)
+### 2. Su Browser (P5LIVE o p5js.org + localtunnel)
 Ideale per demo, lezioni o condivisione rapida online.  
 * **Ambiente:** [P5LIVE](https://teddavis.org/p5live/).
   * **Setup:**
@@ -36,11 +36,11 @@ Ideale per demo, lezioni o condivisione rapida online.
   
  
 * **Ambiente:** [p5.js Web Editor](https://editor.p5js.org/).
-  * **Setup con ngrok:**
+  * **Setup con locatunnel:**
     1. Avvia il server `node server.js` in locale.
-    2. Crea un tunnel pubblico con `ngrok http 8080`.
-    3. Copia l'indirizzo `wss://...` fornito da ngrok.
-    4. Incolla l'indirizzo in questo progetto (https://editor.p5js.org/fabbrista/sketches/nUKw1eUHi) che rende dinamico una reinterpretazione di Mondrian con i fiducial.
+    2. Crea un tunnel pubblico con `npx localtunnel --port 8080`.
+    3. Copia l'indirizzo `wss://...` fornito da localtunnel.
+    4. cimentati in Mondrian, incolla l'indirizzo in questo progetto (https://editor.p5js.org/fabbrista/sketches/nUKw1eUHi) che rende dinamico una reinterpretazione di "Composizione con rosso, blu e giallo" con i fiducial.
     5. Remixa il progetto.
 
 
@@ -59,8 +59,8 @@ Ideale per demo, lezioni o condivisione rapida online.
 
 ## 🚀 Guida Rapida all'Avvio
 Per automatizzare il setup su Windows, usa i file `.bat` presenti nella cartella:
-* `AVVIA_SERVER.bat`: Lancia server.js.
-* `AVVIA_SERVER_ngrok.bat`: Lancia server e ngrok (se necessario per il web).
+* `AVVIA_SERVER.bat`: Lancialo se vuoi usare solo server.js.
+* `AVVIA_SERVER_localtunnel.bat`: Lancialo se vuoi usare server e localtunnel (se necessario per il web).
 
 ---
 
